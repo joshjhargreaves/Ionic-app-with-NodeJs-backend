@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('fullstackApp', [
+  'ionic',
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -41,7 +42,7 @@ angular.module('fullstackApp', [
     };
   })
 
-  .run(function ($rootScope, $location, Auth) {
+  .run(function ($ionicPlatform, $rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
@@ -49,5 +50,17 @@ angular.module('fullstackApp', [
           $location.path('/login');
         }
       });
+    });
+
+    $ionicPlatform.ready(function() {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if(window.StatusBar) {
+        // org.apache.cordova.statusbar required
+        StatusBar.styleDefault();
+      }
     });
   });

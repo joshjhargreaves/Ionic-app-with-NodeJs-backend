@@ -18,9 +18,9 @@ angular.module('starter', [
   $rootScope.$on('$stateChangeStart', function (event, next) {
     Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
-        //$location.path('/login');
-        event.preventDefault();
-        $state.go('app.login');
+        $location.path('/login');
+        // event.preventDefault();
+        // $state.go('login');
       }
     });
   });
@@ -114,14 +114,9 @@ angular.module('starter', [
       },
     })
 
-    .state('app.login', {
+    .state('login', {
       url: "/login",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/loginForm.html",
-          controller: 'PlaylistCtrl'
-        }
-      },
+      templateUrl: "templates/loginForm.html"
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');

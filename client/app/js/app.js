@@ -7,20 +7,20 @@
 angular.module('starter', [
   'ionic', 
   'starter.controllers',
-  'ionic',
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'btford.socket-io',
-  'ui.router'
+  'btford.socket-io'
   ])
 
-.run(function($ionicPlatform, $rootScope, Auth, $location) {
+.run(function($ionicPlatform, $rootScope, Auth, $location, $state) {
   // Redirect to login if route requires auth and you're not logged in
   $rootScope.$on('$stateChangeStart', function (event, next) {
     Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
-        $location.path('/login');
+        //$location.path('/login');
+        event.preventDefault();
+        $state.go('app.login');
       }
     });
   });
@@ -53,6 +53,7 @@ angular.module('starter', [
       responseError: function(response) {
         if(response.status === 401) {
           $location.path('/login');
+
           // remove any stale tokens
           $cookieStore.remove('token');
           return $q.reject(response);
@@ -80,7 +81,8 @@ angular.module('starter', [
         'menuContent' :{
           templateUrl: "templates/search.html"
         }
-      }
+      },
+      authenticate: true
     })
 
     .state('app.browse', {
@@ -112,10 +114,14 @@ angular.module('starter', [
       },
     })
 
-    .state('login', {
+    .state('app.login', {
       url: "/login",
-      abstract: false,
-      templateUrl: "templates/login.html",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/loginForm.html",
+          controller: 'PlaylistCtrl'
+        }
+      },
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');

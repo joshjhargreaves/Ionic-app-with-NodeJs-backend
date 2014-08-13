@@ -1,8 +1,10 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function(Auth, $scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
+  $scope.user = {};
+  $scope.errors = {};
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -24,6 +26,16 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
+    Auth.login($scope.loginData)
+    .then( function() {
+      // Logged in, redirect to home
+      $location.path('/');
+    })
+    .catch( function(err) {
+      $scope.errors.other = err.message;
+      console.log(err.message);
+    });
+
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system

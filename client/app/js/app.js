@@ -15,7 +15,16 @@ angular.module('starter', [
   'ui.router'
   ])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, Auth, $location) {
+  // Redirect to login if route requires auth and you're not logged in
+  $rootScope.$on('$stateChangeStart', function (event, next) {
+    Auth.isLoggedInAsync(function(loggedIn) {
+      if (next.authenticate && !loggedIn) {
+        $location.path('/login');
+      }
+    });
+  });
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -62,7 +71,7 @@ angular.module('starter', [
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
+      controller: 'AppCtrl',
     })
 
     .state('app.search', {
@@ -100,7 +109,13 @@ angular.module('starter', [
           templateUrl: "templates/playlist.html",
           controller: 'PlaylistCtrl'
         }
-      }
+      },
+    })
+
+    .state('login', {
+      url: "/login",
+      abstract: false,
+      templateUrl: "templates/login.html",
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');

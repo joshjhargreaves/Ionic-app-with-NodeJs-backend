@@ -5,3 +5,4 @@ public
 client/lib
 dist
 /server/config/local.env.js
+plugins

@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('fullstackApp')
+angular.module('starter')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
     $scope.user = {};
     $scope.errors = {};
+    $scope.test = "testing";
 
     $scope.login = function(form) {
       $scope.submitted = true;

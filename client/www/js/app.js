@@ -116,7 +116,8 @@ angular.module('starter', [
 
     .state('login', {
       url: "/login",
-      templateUrl: "templates/loginForm.html"
+      templateUrl: "account/login/loginForm.html",
+      controller: 'LoginCtrl'
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');

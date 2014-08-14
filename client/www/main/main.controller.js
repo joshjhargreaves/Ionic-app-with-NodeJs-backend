@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('fullstackApp')
+angular.module('starter')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    /*$scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -23,7 +23,7 @@ angular.module('fullstackApp')
 
     $scope.$on('$destroy', function () {
       //socket.unsyncUpdates('thing');
-    });
+    });*/
   })
 
   .controller('AppCtrl', function($scope, $ionicModal, $timeout) {

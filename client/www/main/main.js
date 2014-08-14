@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('fullstackApp')
+angular.module('starter')
   .config(function ($stateProvider) {
-    $stateProvider
+    /*$stateProvider
       .state('main', {
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
-      });
+      });*/
   });

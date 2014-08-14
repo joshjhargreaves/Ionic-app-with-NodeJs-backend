@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fullstackApp')
+angular.module('starter')
   .controller('SettingsCtrl', function ($scope, User, Auth) {
     $scope.errors = {};
 

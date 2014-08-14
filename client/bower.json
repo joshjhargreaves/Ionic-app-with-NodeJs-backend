@@ -12,6 +12,6 @@
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
     "ionic": "driftyco/ionic-bower#1.0.0-beta.11",
-    "bootstrap-sass-official": "~3.2.0+1"
+    "bootstrap-sass-official": "latest"
   }
 }

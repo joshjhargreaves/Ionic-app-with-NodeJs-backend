@@ -14,7 +14,7 @@ var bowerFiles = require('main-bower-files'),
 
 var cssFiles = gulp.src('./scss/ionic.app.scss')
   .pipe(sass())
-  .pipe(gulp.dest('./build'))
+  .pipe(gulp.dest('./www/css'))
   .pipe(minifyCss({
     keepSpecialComments: 0
   }))
@@ -40,13 +40,13 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('js', function(done) {
+gulp.task('build', function(done) {
   gulp.src('./www/index.html')
   .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
   .pipe(inject(es.merge(
     cssFiles,
-    gulp.src('./www/**/*.js', {read: false}, {relative: true})
-  )))
+    gulp.src(['./www/**/*.js', '!./www/{lib,lib/**}'], {read: false})
+  ), {relative: true}))
   .pipe(gulp.dest('./www/'));
 });
 

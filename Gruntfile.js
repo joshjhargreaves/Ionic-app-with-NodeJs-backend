@@ -340,7 +340,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            'bower_components/**/*',
+            'lib/**/*',
             'assets/images/{,*/}*.{webp}',
             'assets/fonts/**/*',
             'index.html'
@@ -434,7 +434,7 @@ module.exports = function (grunt) {
       server: {
         options: {
           loadPath: [
-            '<%= yeoman.client %>/bower_components',
+            '<%= yeoman.client %>/lib',
             '<%= yeoman.client %>/www',
             '<%= yeoman.client %>/components'
           ],

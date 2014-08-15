@@ -42,9 +42,9 @@ module.exports = function(app) {
   }));
   
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'client/www', 'favicon.ico')));
-    app.use(express.static(path.join(config.root, 'client/www')));
-    app.set('appPath', config.root + '/client/www');
+    app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
+    app.use(express.static(path.join(config.root, 'client')));
+    app.set('appPath', config.root + '/client');
     app.use(morgan('dev'));
   }
 

@@ -25,7 +25,8 @@
     "composable-middleware": "^0.3.0",
     "connect-mongo": "^0.4.1",
     "socket.io": "~1.0.6",
-    "socketio-jwt": "^2.0.2"
+    "socketio-jwt": "^2.0.2",
+    "mongodb": "latest"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

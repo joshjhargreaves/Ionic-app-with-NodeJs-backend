@@ -3,3 +3,4 @@ platforms
 hooks
 build/*
 www/css/ionic.*
+bower_components/

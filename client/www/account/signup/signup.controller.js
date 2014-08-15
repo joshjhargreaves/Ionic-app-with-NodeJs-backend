@@ -27,6 +27,7 @@ angular.module('starter')
             form[field].$setValidity('mongoose', false);
             $scope.errors[field] = error.message;
           });
+          console.log($scope.errors);
         });
       }
     };

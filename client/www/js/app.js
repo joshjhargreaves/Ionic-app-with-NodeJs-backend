@@ -113,10 +113,11 @@ angular.module('starter', [
       },
     })
 
-    .state('login', {
-      templateUrl: "account/login/loginForm.html",
-      controller: 'LoginCtrl'
-    });
+    // .state('signup', {
+    //   templateUrl: "account/login/loginForm.html",
+    //   controller: 'SignupCtrl',
+    //   url: '/signup'
+    // });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
   $httpProvider.interceptors.push('authInterceptor');

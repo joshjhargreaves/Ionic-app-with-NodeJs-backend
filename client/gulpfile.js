@@ -45,7 +45,7 @@ gulp.task('build', function(done) {
   .pipe(inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
   .pipe(inject(es.merge(
     cssFiles,
-    gulp.src(['./www/**/*.js', '!./www/{lib,lib/**}'], {read: false})
+    gulp.src(['./www/**/*.js', '!./www/{lib,lib/**}', '!./www/js/app.js'], {read: false})
   ), {relative: true}))
   .pipe(gulp.dest('./www/'));
 });

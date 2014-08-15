@@ -29,8 +29,13 @@
         <p class="item help-block" ng-show="form.password.$error.required && !form.email.$error.required && submitted">
            Please enter a password.
         </p>
-        <p class="help-block">{{ errors.other }}</p>
+        <p class="item help-block">{{ errors.other }}</p>
       </div>
+      <a class="item item-icon-left item-icon-right" ui-sref="app.browse">
+        <i class="icon ion-compose"></i>
+        Sign Up
+        <i class="icon ion-arrow-right-c"></i>
+      </a>
       <label class="item">
         <button class="button button-block button-positive" type="submit">Log in</button>
       </label>

@@ -15,12 +15,11 @@ angular.module('starter', [
 
 .run(function($ionicPlatform, $rootScope, Auth, $location, $state) {
   // Redirect to login if route requires auth and you're not logged in
-  $rootScope.$on('$stateChangeStart', function (event, next) {
+  $rootScope.$on('$stateChangeSuccess', function (event, next) {
     Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
-        $location.path('/login');
-        // event.preventDefault();
-        // $state.go('login');
+        //$location.path('/login');
+        $state.go('login');
       }
     });
   });
@@ -115,7 +114,6 @@ angular.module('starter', [
     })
 
     .state('login', {
-      url: "/login",
       templateUrl: "account/login/loginForm.html",
       controller: 'LoginCtrl'
     });

@@ -15,11 +15,12 @@ angular.module('starter', [
 
 .run(function($ionicPlatform, $rootScope, Auth, $location, $state) {
   // Redirect to login if route requires auth and you're not logged in
-  $rootScope.$on('$stateChangeSuccess', function (event, next) {
+  $rootScope.$on('$stateChangeStart', function (event, next) {
     Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
+        event.preventDefault();
         //$location.path('/login');
-        $state.go('login');
+        $state.go('app.login');
       }
     });
   });
@@ -75,7 +76,7 @@ angular.module('starter', [
     })
 
     .state('app.search', {
-      url: "/search",
+      url: "^/search",
       views: {
         'menuContent' :{
           templateUrl: "templates/search.html"
@@ -85,7 +86,7 @@ angular.module('starter', [
     })
 
     .state('app.browse', {
-      url: "/browse",
+      url: "^/browse",
       views: {
         'menuContent' :{
           templateUrl: "templates/browse.html"
@@ -94,7 +95,7 @@ angular.module('starter', [
     })
 
     .state('app.playlists', {
-      url: "/playlists",
+      url: "^/playlists",
       views: {
         'menuContent' :{
           templateUrl: "templates/playlists.html",
@@ -113,13 +114,8 @@ angular.module('starter', [
       },
     })
 
-    // .state('signup', {
-    //   templateUrl: "account/login/loginForm.html",
-    //   controller: 'SignupCtrl',
-    //   url: '/signup'
-    // });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('playlists');
   $httpProvider.interceptors.push('authInterceptor');
 });
 

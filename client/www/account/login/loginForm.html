@@ -1,44 +1,44 @@
-<ion-header-bar>
-  <h1 class="title">Login</h1>
-  <div class="buttons">
-    <button class="button button-clear" ng-click="closeLogin()">Close</button>
-  </div>
-</ion-header-bar>
-<ion-content>
-  <form class="form" name="form" ng-submit="login(form)" novalidate>
-    <div class="list">
-      <div class="form-group">
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="email" name="email" class="form-control" ng-model="loginData.username" required>
-        </label>
-      </div>
-      <div class="form-group">
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" name="password" class="form-control" ng-model="loginData.password" required>
-        </label>
-      </div>
-      <div class="form-group has-error">
-        <div class="item help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
-           Please enter your email and password.
+<ion-view title="Login">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <form class="form" name="form" ng-submit="login(form)" novalidate>
+      <div class="list">
+        <div class="form-group">
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" name="email" class="form-control" ng-model="loginData.username" required>
+          </label>
         </div>
-        <label class="item help-block" ng-show="form.email.$error.email && submitted">
-           Please enter a valid email.
+        <div class="form-group">
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" name="password" class="form-control" ng-model="loginData.password" required>
+          </label>
+        </div>
+        <div class="form-group has-error">
+          <div class="item help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+             Please enter your email and password.
+          </div>
+          <label class="item help-block" ng-show="form.email.$error.email && submitted">
+             Please enter a valid email.
+          </label>
+          <p class="item help-block" ng-show="form.password.$error.required && !form.email.$error.required && submitted">
+             Please enter a password.
+          </p>
+          <p class="item help-block">{{ errors.other }}</p>
+        </div>
+        <a class="item item-icon-left item-icon-right" ui-sref="app.signup">
+          <i class="icon ion-compose"></i>
+          Sign Up
+          <i class="icon ion-arrow-right-c"></i>
+        </a>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
         </label>
-        <p class="item help-block" ng-show="form.password.$error.required && !form.email.$error.required && submitted">
-           Please enter a password.
-        </p>
-        <p class="item help-block">{{ errors.other }}</p>
       </div>
-      <a class="item item-icon-left item-icon-right" ui-sref="signup">
-        <i class="icon ion-compose"></i>
-        Sign Up
-        <i class="icon ion-arrow-right-c"></i>
-      </a>
-      <label class="item">
-        <button class="button button-block button-positive" type="submit">Log in</button>
-      </label>
-    </div>
-  </form>
-</ion-content>
+    </form>
+  </ion-content>
+</ion-view>
+

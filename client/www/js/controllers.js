@@ -1,11 +1,25 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function(Auth, $scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function(Auth, $scope, $ionicModal, $timeout, $location) {
   // Form data for the login modal
   $scope.loginData = {};
   $scope.user = {};
   $scope.errors = {};
 
+  $scope.isCollapsed = true;
+  $scope.isLoggedIn = Auth.isLoggedIn;
+  $scope.isAdmin = Auth.isAdmin;
+  $scope.getCurrentUser = Auth.getCurrentUser;
+
+  console.log('logged in?: ' + $scope.isLoggedIn);
+  $scope.logout = function() {
+    Auth.logout();
+    $location.path('/login');
+  };
+
+  $scope.isActive = function(route) {
+    return route === $location.path();
+  };
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope

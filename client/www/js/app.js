@@ -71,7 +71,7 @@ angular.module('starter', [
     .state('app', {
       url: "/app",
       abstract: true,
-      templateUrl: "templates/menu.html",
+      templateUrl: "main/main.html",
       controller: 'AppCtrl',
     })
 

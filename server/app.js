@@ -10,6 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
+var gith = require('gith').create(9004);
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -29,6 +30,12 @@ require('./routes')(app);
 server.listen(config.port, config.ip, function () {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   console.log('The Mongodb url is: ', config.mongo.uri);
+});
+
+gith({
+  repo: 'hardgreaves/fullstack'
+}).on( 'all', function( payload ) {
+  console.log( 'Post-receive happened!' );
 });
 
 // Expose app

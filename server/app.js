@@ -41,7 +41,7 @@ gith({
   function puts(error, stdout, stderr) { 
     sys.puts(stdout)
   }
-  exec(". ~/home/dev/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
+  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
 });
 
 // Expose app

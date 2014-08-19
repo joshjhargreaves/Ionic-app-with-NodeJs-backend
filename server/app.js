@@ -10,7 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
-//var gith = require('gith').create(9004);
+var gith = require('gith').create(9004);
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -43,7 +43,7 @@ server.listen(config.port, config.ip, function () {
     sys.puts(stdout)
   }
   exec(". ~/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
-});*/
+});
 
 // Expose app
 exports = module.exports = app;

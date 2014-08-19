@@ -22,6 +22,8 @@ if(config.seedDB) { require('./config/seed'); }
 var app = express();
 var server = require('http').createServer(app);
 var socketio = require('socket.io').listen(server);
+var sys = require('sys')
+var exec = require('child_process').exec;
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
@@ -33,9 +35,13 @@ server.listen(config.port, config.ip, function () {
 });
 
 gith({
-  repo: 'hardgreaves/fullstack'
+  repo: 'hardgreaves/fullstack',
+  branch: 'main'
 }).on( 'all', function( payload ) {
-  console.log( 'Post-receive happened!' );
+  function puts(error, stdout, stderr) { 
+    sys.puts(stdout)
+  }
+  exec(". ~/home/dev/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
 });
 
 // Expose app

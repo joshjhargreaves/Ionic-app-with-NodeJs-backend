@@ -36,7 +36,6 @@ server.listen(config.port, config.ip, function () {
 
 gith({
   repo: 'hardgreaves/fullstack',
-  branch: 'main'
 }).on( 'all', function( payload ) {
 	console.log('recieved request');
   function puts(error, stdout, stderr) { 

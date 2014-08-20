@@ -14,10 +14,10 @@ var gith = require('gith').create(9004);
 
 gith().on( 'all', function( payload ) {
   console.log('recieved request');
-  function puts(error, stdout, stderr) { 
+  /*function puts(error, stdout, stderr) { 
     sys.puts(stdout)
   }
-  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts);
+  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts);*/
 });
 
 // Connect to database

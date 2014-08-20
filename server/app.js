@@ -44,5 +44,5 @@ server.listen(config.port, config.ip, function () {
   console.log('The Mongodb url is: ', config.mongo.uri);
 });
 
-// Expose app
+// Expose app TESTTT
 exports = module.exports = app;

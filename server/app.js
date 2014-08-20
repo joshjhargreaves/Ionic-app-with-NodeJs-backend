@@ -18,6 +18,9 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 // Populate DB with sample data
 if(config.seedDB) { require('./config/seed'); }
 
+//Setup githook 'server'
+http.createServer(githook).listen(9004);
+
 // Setup server
 var app = express();
 var server = http.createServer(app);
@@ -27,9 +30,6 @@ var exec = require('child_process').exec;
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
-
-//Setup githook 'server'
-http.createServer(githook).listen(9004);
 
 //function that github webhooks get sent to
 function githook(req, res) {

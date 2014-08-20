@@ -27,8 +27,8 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 if(config.seedDB) { require('./config/seed'); }
 
 // Setup server
-/*var app = express();
-var server = require('http').createServer(app);
+var app = express();
+/*var server = require('http').createServer(app);
 var socketio = require('socket.io').listen(server);
 var sys = require('sys')
 var exec = require('child_process').exec;

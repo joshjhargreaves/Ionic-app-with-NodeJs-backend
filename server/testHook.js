@@ -3,7 +3,7 @@ var app = express();
 
 app.post('/', function(req){
 	console.log('recieved post')
-  res.send('Hello World');
+  res.send(200);
 });
 
 var server = app.listen(9004, function() {

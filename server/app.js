@@ -29,15 +29,19 @@ require('./config/express')(app);
 require('./routes')(app);
 
 //Setup githook 'server'
-http.createServer(app).listen(9004);
+http.createServer(githook).listen(9004);
 
 //function that github webhooks get sent to
 function githook(req, res) {
+  function puts(error, stdout, stderr) { 
+    sys.puts(stdout)
+  }
+  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts);
 	res.write('Response on 9004');
 	res.end();
 }
 
-// Start server
+// Start app server
 server.listen(config.port, config.ip, function () {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   console.log('The Mongodb url is: ', config.mongo.uri);

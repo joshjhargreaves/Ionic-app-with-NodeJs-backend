@@ -1,8 +1,10 @@
-var gith = require('gith').create(); // ensure to match the port you entered in Github
+var express = require('express');
+var app = express();
 
-gith().on( 'all', function( payload ) {
-  console.log( 'Post-receive happened!' );
+app.post('/', function(req){
+	console.log('recieved post')
 });
 
-//please work haha.
-gith.listen(9004);
+var server = app.listen(9004, function() {
+    console.log('Listening on port %d', server.address().port);
+});

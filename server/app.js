@@ -12,6 +12,16 @@ var mongoose = require('mongoose');
 var config = require('./config/environment');
 var gith = require('gith').create(9004);
 
+gith({
+  repo: 'hardgreaves/fullstack'
+}).on( 'all', function( payload ) {
+	console.log('recieved request');
+  function puts(error, stdout, stderr) { 
+    sys.puts(stdout)
+  }
+  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
+});
+
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
@@ -32,16 +42,6 @@ require('./routes')(app);
 server.listen(config.port, config.ip, function () {
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   console.log('The Mongodb url is: ', config.mongo.uri);
-});
-
-gith({
-  repo: 'hardgreaves/fullstack'
-}).on( 'all', function( payload ) {
-	console.log('recieved request');
-  /*function puts(error, stdout, stderr) { 
-    sys.puts(stdout)
-  }
-  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts);*/ // command to be execute
 });
 
 // Expose app

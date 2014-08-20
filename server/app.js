@@ -10,7 +10,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
-var http = require('http');
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -19,11 +18,11 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 if(config.seedDB) { require('./config/seed'); }
 
 //Setup githook 'server'
-http.createServer(githook).listen(9004);
+require('http').createServer(githook).listen(9004);
 
 // Setup server
 var app = express();
-var server = http.createServer(app);
+var server = require('http');.createServer(app);
 var socketio = require('socket.io').listen(server);
 var sys = require('sys')
 var exec = require('child_process').exec;

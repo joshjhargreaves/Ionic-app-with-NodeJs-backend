@@ -12,14 +12,12 @@ var mongoose = require('mongoose');
 var config = require('./config/environment');
 var gith = require('gith').create(9004);
 
-gith({
-  repo: 'hardgreaves/fullstack'
-}).on( 'all', function( payload ) {
-	console.log('recieved request');
+gith().on( 'all', function( payload ) {
+  console.log('recieved request');
   function puts(error, stdout, stderr) { 
     sys.puts(stdout)
   }
-  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts); // command to be execute
+  exec(". ~/fullstack/fullstack/deploy-develop.sh", puts);
 });
 
 // Connect to database

@@ -45,6 +45,7 @@ module.exports = function(app) {
     /*app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'client/www')));
     app.set('appPath', config.root + '/client/www');*/
+    console.log("Using production routes");
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'client/www')));
     app.set('appPath', 'client/www');
@@ -52,6 +53,7 @@ module.exports = function(app) {
   }
 
   if ('development' === env || 'test' === env) {
+    console.log("Using development routes");
     app.use(require('connect-livereload')());
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(path.join(config.root, 'client/www')));

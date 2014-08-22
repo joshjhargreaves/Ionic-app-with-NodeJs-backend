@@ -28,7 +28,7 @@
     "socketio-jwt": "^2.0.2",
     "bson": "~0.2.11",
     "gith": "~1.0.4",
-    "static-favicon", "latest"
+    "static-favicon": "latest"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

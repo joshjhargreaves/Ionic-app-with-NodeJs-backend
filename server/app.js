@@ -30,7 +30,7 @@ require('./routes')(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {
-	console.log("Route: %s", config.route);
+	console.log("Route: %s", config.root);
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   console.log('The Mongodb url is: ', config.mongo.uri);
 });

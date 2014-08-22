@@ -28,7 +28,8 @@
     "socketio-jwt": "^2.0.2",
     "bson": "~0.2.11",
     "gith": "~1.0.4",
-    "static-favicon": "latest"
+    "static-favicon": "latest",
+    "connect-livereload": "~0.4.0",
   },
   "devDependencies": {
     "grunt": "~0.4.4",
@@ -66,7 +67,6 @@
     "grunt-open": "~0.2.3",
     "open": "~0.0.4",
     "jshint-stylish": "~0.1.5",
-    "connect-livereload": "~0.4.0",
     "karma-ng-scenario": "~0.1.0",
     "karma-firefox-launcher": "~0.1.3",
     "karma-script-launcher": "~0.1.0",

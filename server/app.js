@@ -34,7 +34,7 @@ server.listen(config.port, config.ip, function () {
   console.log('The Mongodb url is: ', config.mongo.uri);
 });
 
-/*gith({
+gith({
   repo: 'hardgreaves/fullstack',
   branch: 'main'
 }).on( 'all', function( payload ) {

@@ -29,7 +29,7 @@
     "bson": "~0.2.11",
     "gith": "~1.0.4",
     "static-favicon": "latest",
-    "connect-livereload": "~0.4.0",
+    "connect-livereload": "~0.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

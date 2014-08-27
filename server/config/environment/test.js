@@ -5,6 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/fullstack-test'
+	  uri: 		process.env.MONGO_URL ||
+					  'mongodb://localhost/fullstack-test'
   }
 };

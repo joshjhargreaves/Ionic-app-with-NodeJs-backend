@@ -15,6 +15,7 @@ router
 
   .get('/callback', passport.authenticate('facebook', {
     failureRedirect: '/signup',
+    successRedirect: '/',
     session: false
   }), auth.setTokenCookie);
 

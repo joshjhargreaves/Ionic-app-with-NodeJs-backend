@@ -6,7 +6,6 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', [
   'ionic', 
-  'starter.controllers',
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -72,7 +71,7 @@ angular.module('starter', [
       url: "/app",
       abstract: true,
       templateUrl: "main/main.html",
-      controller: 'AppCtrl',
+      controller: 'AppCtrl'
     })
 
     .state('app.search', {
@@ -89,7 +88,7 @@ angular.module('starter', [
       url: "^/browse",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/browse.html",
         }
       }
     })
@@ -118,4 +117,7 @@ angular.module('starter', [
   $urlRouterProvider.otherwise('playlists');
   $httpProvider.interceptors.push('authInterceptor');
 });
+
+
+
 

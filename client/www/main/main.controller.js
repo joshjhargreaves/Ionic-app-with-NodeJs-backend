@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('starter')
-.controller('AppCtrl', function (Auth, $scope, $ionicModal, $timeout, $location) {
-  console.log("running app ctrl");
+.controller('MainCtrl', function (Auth, $scope, $ionicModal, $timeout, $location) {
   $scope.loginData = {};
   $scope.user = {};
   $scope.errors = {};

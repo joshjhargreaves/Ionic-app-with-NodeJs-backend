@@ -71,7 +71,7 @@ angular.module('starter', [
       url: "/app",
       abstract: true,
       templateUrl: "main/main.html",
-      controller: 'AppCtrl'
+      controller: 'MainCtrl'
     })
 
     .state('app.search', {

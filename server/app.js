@@ -33,7 +33,7 @@ server.listen(config.port, config.ip, function () {
 	console.log("Route: %s", config.root);
   console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
   console.log('The Mongodb url is: ', config.mongo.uri);
-  console.log('Facebook redirect url =: %s', config.facebook.callbackURL);
+  console.log('Facebook secret url =: %s', config.facebook.clientID);
 });
 
 gith({

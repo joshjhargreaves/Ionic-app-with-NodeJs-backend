@@ -11,6 +11,8 @@ angular.module('starter')
   $scope.isAdmin = Auth.isAdmin;
   $scope.getCurrentUser = Auth.getCurrentUser;
 
+  console.log($scope.getCurrentUser().facebook);
+
   $scope.logout = function() {
     Auth.logout();
     $location.path('/login');

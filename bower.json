@@ -12,6 +12,7 @@
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
     "ionic": "driftyco/ionic-bower#1.0.0-beta.11",
-    "bootstrap-sass-official": "latest"
+    "bootstrap-sass-official": "latest",
+    "bootstrap-social": "https://github.com/lipis/bootstrap-social.git#3112cb6d071adedbd8fc8fc3feb4491adad62963"
   }
 }

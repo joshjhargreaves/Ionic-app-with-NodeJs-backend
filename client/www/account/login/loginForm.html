@@ -40,10 +40,18 @@
       </div>
     </form>
     <div class="list">
-      <label class="item">
-        <button class="button button-block button-positive" ng-click="loginOauth('facebook')">Facebook</button>
+      <label class="item" ng-click="loginOauth('facebook')">
+        <a class="btn btn-lg btn-block btn-social btn-facebook">
+          <i class="fa fa-facebook"></i>
+          Sign in with Facebook
+        </a>
+      </label>
+      <label class="item" ng-click="loginOauth('google')">
+        <a class="btn btn-lg btn-block btn-social btn-google-plus">
+          <i class="fa fa-google-plus"></i>
+          Sign in with Google
+        </a>
       </label>
     </div>
   </ion-content>
 </ion-view>
-

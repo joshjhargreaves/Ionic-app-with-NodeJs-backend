@@ -5,10 +5,10 @@ angular.module('starter')
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
+    var baseUrl = "http://localhost:8080"
 
     $scope.login = function(form) {
       $scope.submitted = true;
-
       if(form.$valid) {
         Auth.login({
           email: $scope.user.email,
@@ -25,6 +25,11 @@ angular.module('starter')
     };
 
     $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
+      //$window.location.href = '/auth/' + provider;
+      var url = baseUrl + '/auth/' + provider;
+      loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
+      loginWindow.addEventListener('loadstart', function(event) {
+        loginWindow.close;
+      })
     };
   });

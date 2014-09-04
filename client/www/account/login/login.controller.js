@@ -25,7 +25,7 @@ angular.module('starter')
     };
 
     $scope.loginOauth = function(provider) {
-      //$window.location.href = '/auth/' + provider;
+      $window.location.href = '/auth/' + provider;
       /*var url = baseUrl + '/auth/' + provider;
       loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
       loginWindow.addEventListener('loadstart', function(event) {

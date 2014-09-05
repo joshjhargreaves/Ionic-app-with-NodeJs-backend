@@ -65,8 +65,10 @@ angular.module('starter', [
   })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-  $stateProvider
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
+  $stateProvider
     .state('app', {
       url: "/app",
       abstract: true,
@@ -117,6 +119,7 @@ angular.module('starter', [
   $locationProvider.html5Mode(true);
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('playlists');
+  // Allow x-origin requests
   $httpProvider.interceptors.push('authInterceptor');
 });
 

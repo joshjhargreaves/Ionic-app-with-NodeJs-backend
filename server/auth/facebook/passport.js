@@ -22,8 +22,9 @@ exports.setup = function (User, config) {
             role: 'user',
             username: profile.username,
             provider: 'facebook',
-            facebook: profile._json
+            facebook: profile._json,
           });
+          user.facebook.accessToken = accessToken;
           user.save(function(err) {
             if (err) done(err);
             return done(err, user);

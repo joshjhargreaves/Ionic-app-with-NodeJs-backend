@@ -5,7 +5,8 @@ angular.module('starter')
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
-    var baseUrl = "http://localhost:8080"
+    //TODO changed this url to be defined in config somewhere
+    var baseUrl = "http://fullstack.joshhargreav.es/playlists"
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -25,11 +26,13 @@ angular.module('starter')
     };
 
     $scope.loginOauth = function(provider) {
-      //$window.location.href = '/auth/' + provider;
-      var url = baseUrl + '/auth/' + provider;
-      loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
-      loginWindow.addEventListener('loadstart', function(event) {
-        loginWindow.close;
-      })
+      $window.location.href = '/auth/' + provider;
+      if(cordova) {
+        var url = baseUrl + '/auth/' + provider;
+        loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
+        loginWindow.addEventListener('loadstart', function(event) {
+          loginWindow.close;
+        })
+      }
     };
   });

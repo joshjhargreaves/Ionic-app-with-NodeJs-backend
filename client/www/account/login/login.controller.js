@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config) {
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
-    var baseUrl = window.cordova ? "http://joshhargreav.es" : "http://localhost:8080" 
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -25,16 +24,18 @@ angular.module('starter')
     };
 
     $scope.loginOauth = function(provider) {
+      console.log(window.cordova);
       if(!window.cordova) {
         $window.location.href = '/auth/' + provider;
       } else {
         var loginWindow, hasToken, url;
-        url = baseUrl + '/auth/' + provider;
-        loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
+        url = Config.apiBase + '/auth/' + provider;
+        loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=no');
         loginWindow.addEventListener('loadstart', function (event) {
           hasToken = event.url.indexOf('?code=');
           if(hasToken > -1) {
             loginWindow.close();
+            $location.path('/');
           }
         })
       }

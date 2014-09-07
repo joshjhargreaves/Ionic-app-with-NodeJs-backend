@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config) {
+  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore) {
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
-    var loginWindow, hasToken, url;
+    var loginWindow, token, hasToken, url;
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -32,9 +32,11 @@ angular.module('starter')
         url = Config.apiBase + '/auth/' + provider;
         loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=no');
         loginWindow.addEventListener('loadstart', function (event) {
-          hasToken = event.url.indexOf('?code=');
+          hasToken = event.url.indexOf('?oauth_token=');
           if(hasToken > -1) {
+            token = event.url.match("oauth_token=(.*)")[1];
             loginWindow.close();
+            Auth.updateUserAndToken(token);
             $location.path('/');
           }
         })

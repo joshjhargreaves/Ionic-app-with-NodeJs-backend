@@ -40,6 +40,16 @@ angular.module('starter')
       },
 
       /**
+       * Sets access token and updates current user
+       *
+       * @param  {String} token - user token
+       */
+      updateUserAndToken: function(token) {
+        $cookieStore.put('token', token);
+        currentUser = User.get();
+      },
+
+      /**
        * Delete access token and user info
        *
        * @param  {Function}

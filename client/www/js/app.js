@@ -15,6 +15,7 @@ angular.module('starter', [
 .run(function($ionicPlatform, $rootScope, Auth, $location, $state) {
   // Redirect to login if route requires auth and you're not logged in
   $rootScope.$on('$stateChangeStart', function (event, next) {
+    $location.url($location.path());
     Auth.isLoggedInAsync(function(loggedIn) {
       if (next.authenticate && !loggedIn) {
         event.preventDefault();

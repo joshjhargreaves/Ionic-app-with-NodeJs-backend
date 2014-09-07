@@ -5,6 +5,7 @@ angular.module('starter')
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
+    var loginWindow, hasToken, url;
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -28,7 +29,6 @@ angular.module('starter')
       if(!window.cordova) {
         $window.location.href = '/auth/' + provider;
       } else {
-        var loginWindow, hasToken, url;
         url = Config.apiBase + '/auth/' + provider;
         loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=no');
         loginWindow.addEventListener('loadstart', function (event) {

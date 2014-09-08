@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore) {
     $scope.user = {};
     $scope.errors = {};
     $scope.test = "testing";
-    //TODO changed this url to be defined in config somewhere
-    var baseUrl = "http://fullstack.joshhargreav.es/playlists"
+    var loginWindow, token, hasToken, url;
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -26,12 +25,20 @@ angular.module('starter')
     };
 
     $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
-      if(cordova) {
-        var url = baseUrl + '/auth/' + provider;
-        loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=yes');
-        loginWindow.addEventListener('loadstart', function(event) {
-          loginWindow.close;
+      console.log(window.cordova);
+      if(!window.cordova) {
+        $window.location.href = '/auth/' + provider;
+      } else {
+        url = Config.apiBase + '/auth/' + provider;
+        loginWindow = $window.open(url, '_blank', 'location=no,toolbar=no,hidden=no');
+        loginWindow.addEventListener('loadstart', function (event) {
+          hasToken = event.url.indexOf('?oauth_token=');
+          if(hasToken > -1) {
+            token = event.url.match("oauth_token=(.*)")[1];
+            loginWindow.close();
+            Auth.updateUserAndToken(token);
+            $location.path('/');
+          }
         })
       }
     };

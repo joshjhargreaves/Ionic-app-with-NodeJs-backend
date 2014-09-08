@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('starter')
-  .factory('User', function ($resource) {
-    return $resource('/api/users/:id/:controller', {
+  .factory('User', function ($resource, Config) {
+    return $resource(Config.apiBase + '/api/users/:id/:controller', {
       id: '@_id'
     },
     {

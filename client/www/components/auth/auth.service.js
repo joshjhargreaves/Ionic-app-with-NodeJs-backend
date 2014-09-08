@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('starter')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, Config) {
     var currentUser = {};
     if($cookieStore.get('token')) {
       currentUser = User.get();
@@ -20,7 +20,7 @@ angular.module('starter')
         var cb = callback || angular.noop;
         var deferred = $q.defer();
 
-        $http.post('/auth/local', {
+        $http.post(Config.apiBase + '/auth/local', {
           email: user.email,
           password: user.password
         }).
@@ -37,6 +37,16 @@ angular.module('starter')
         }.bind(this));
 
         return deferred.promise;
+      },
+
+      /**
+       * Sets access token and updates current user
+       *
+       * @param  {String} token - user token
+       */
+      updateUserAndToken: function(token) {
+        $cookieStore.put('token', token);
+        currentUser = User.get();
       },
 
       /**

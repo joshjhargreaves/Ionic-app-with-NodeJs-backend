@@ -116,7 +116,7 @@ angular.module('starter', [
     })
     
   // use the HTML5 History API
-  $locationProvider.html5Mode(true);
+  //$locationProvider.html5Mode(true);
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('playlists');
   // Allow x-origin requests

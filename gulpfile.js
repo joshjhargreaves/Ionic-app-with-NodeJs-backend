@@ -34,7 +34,7 @@ var cssFiles = gulp.src('./scss/ionic.app.scss')
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
+  gulp.src('./client/scss/ionic.app.scss')
     .pipe(sass())
     .pipe(gulp.dest(paths.dist.css))
     .pipe(minifyCss({

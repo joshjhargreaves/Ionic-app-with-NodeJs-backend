@@ -10,10 +10,10 @@
           <label class="item item-input">
             <span class="input-label">Name</span>
             <input type="text" name="name" class="form-control" ng-model="user.name" required>
-            <p class="item-help-block" ng-show="form.name.$error.required && submitted">
-              A name is required
-            </p>
           </label>
+          <p class="item help-block" ng-show="form.name.$error.required && submitted">
+            A name is required
+          </p>
         </div>
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                                               'has-error': form.email.$invalid && submitted }">

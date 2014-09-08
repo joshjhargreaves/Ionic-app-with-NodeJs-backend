@@ -13,11 +13,11 @@ var bowerFiles = require('main-bower-files'),
     es = require('event-stream');
 
 var paths = {
-  sass: ['./client/scss/**/*.scss'],
-  js: ['./client/www/**/*.js', '!./client/www/{lib,lib/**}', '!./client/www/js/app.js'],
+  sass: ['./scss/**/*.scss'],
+  js: ['./www/**/*.js', '!./www/{lib,lib/**}', '!./www/js/app.js'],
   dist: {
-    css: './client/www/css/',
-    pub: './client/www/',
+    css: './www/css/',
+    pub: './www/',
   }
 };
 
@@ -41,7 +41,7 @@ gulp.task('sass', function(done) {
       keepSpecialComments: 0
     }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
 

@@ -18,12 +18,26 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+// The path for font awesomes font files, relative to www/css
+$fa-font-path: "../lib/font-awesome/fonts" !default;
+
+@import "www/lib/font-awesome/scss/font-awesome";
+@import "www/lib/font-awesome-sass/assets/stylesheets/font-awesome-sprockets";
+
 @import "www/lib/bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "www/lib/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
 @import "www/lib/bootstrap-social/bootstrap-social";
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+
+
+
+
+
+
 
 
 

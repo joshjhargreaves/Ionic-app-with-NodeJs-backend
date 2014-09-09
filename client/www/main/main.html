@@ -1,42 +1,42 @@
 <ion-side-menus>
 
   <ion-pane ion-side-menu-content>
-    <ion-nav-bar class="bar-calm nav-title-slide-ios7">
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7">
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-dark">
+    <header class="bar bar-header bar-positive">
       <h1 class="title">Menu</h1>
     </header>
-    <ion-content class="has-header">
-      <ion-list>
-        <ion-item ng-hide="isLoggedIn()" nav-clear menu-close ui-sref="app.login" class = "item-icon-left">
+    <ion-content class="has-header darkk">
+      <ion-list class>
+        <ion-item ng-hide="isLoggedIn()" nav-clear menu-close ui-sref="app.login" class = "item-icon-left item-dark">
           <i class="icon ion-log-in"></i>
-          Login
+          <span class="white">Login</span>
         </ion-item>
-        <ion-item ng-hide="isLoggedIn()" nav-clear menu-close ui-sref="app.signup" class = "item-icon-left">
+        <ion-item ng-hide="isLoggedIn()" nav-clear menu-close ui-sref="app.signup" class = "item-icon-left item-dark">
           <i class="icon ion-compose"></i>
-          Sign Up
+          <span class="white">Sign Up</span>
         </ion-item>
-        <ion-item ng-show="isLoggedIn()" nav-clear menu-close ng-click="logout()" class = "item-icon-left">
+        <ion-item ng-show="isLoggedIn()" nav-clear menu-close ng-click="logout()" class = "item-icon-left item-dark">
           <i class="icon ion-log-out"></i>
-          Log Out {{getCurrentUser().name}}
+          <span class="white">Log Out {{getCurrentUser().name}}</span>
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.search" class = "item-icon-left">
+        <ion-item nav-clear menu-close ui-sref="app.search" class = "item-icon-left item-dark">
           <i class="icon ion-search"></i>
-          Search
+          <span class="white">Search</span>
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.browse" class = "item-icon-left">
+        <ion-item nav-clear menu-close ui-sref="app.browse" class = "item-icon-left item-dark">
           <i class="icon ion-folder"></i>
-          Browse
+          <span class="white">Browse</span>
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.playlists" class = "item-icon-left">
+        <ion-item nav-clear menu-close ui-sref="app.playlists" class = "item-icon-left item-dark">
           <i class="icon ion-music-note"></i>
-          Playlists
+          <span class="white">Playlists</span>
         </ion-item>
-      </ion-list>
+      </ul>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

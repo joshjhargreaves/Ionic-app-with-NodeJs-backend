@@ -3,17 +3,30 @@ To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
+*/
+
+/*$light:                           #fff !default;
+$stable:                          #CACFD2 !default;
+$positive:                        #1ABC9C !default;
+$calm:                            #5DADE2 !default;
+$balanced:                        #2ECC71 !default;
+$energized:                       #F1C40F !default;
+$assertive:                       #E74C3C !default;
+$royal:                           #8a6de9 !default;
+$dark:                            #444444 !default;*/
 
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
-$positive:                        #4a87ee !default;
-$calm:                            #43cee6 !default;
+$positive:                        #1ABC9C !default;
+$calm:                            #3498DB !default;
 $balanced:                        #66cc33 !default;
 $energized:                       #f0b840 !default;
 $assertive:                       #ef4e3a !default;
 $royal:                           #8a6de9 !default;
-$dark:                            #444 !default;
-*/
+$dark:                            #34495E !default;
+$button-dark-text:								#798795 !default;
+$white:														#fff 		!default;
+$button-dark-border:							#2C3E50 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 
@@ -28,8 +41,20 @@ $fa-font-path: "../lib/font-awesome/fonts" !default;
 @import "www/lib/bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+
 @import "www/lib/bootstrap-social/bootstrap-social";
+@import "www/lib/ionic/scss/ionic";
+
+.white {
+	color: $white;
+}
+
+.darkk {
+	color: $dark;
+	background-color: $dark;
+}
+
+
 
 
 

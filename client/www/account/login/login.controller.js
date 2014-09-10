@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore) {
+  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore, $cordovaNetwork) {
     $scope.user = {};
     $scope.errors = {};
-    $scope.test = "testing";
     var loginWindow, token, hasToken, url;
-
+    $scope.isOnline = window.cordova? $cordovaNetwork.isOnline() : true;
     $scope.login = function(form) {
       $scope.submitted = true;
       if(form.$valid) {

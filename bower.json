@@ -15,7 +15,8 @@
     "bootstrap-sass-official": "latest",
     "bootstrap-social": "https://github.com/lipis/bootstrap-social.git#3112cb6d071adedbd8fc8fc3feb4491adad62963",
     "flat-ui": "~2.2.0",
-    "Bootflat": "~2.0.4"
+    "Bootflat": "~2.0.4",
+    "ngCordova": "~0.1.4-alpha"
   },
   "resolutions": {
     "angular": "~1.2.6"

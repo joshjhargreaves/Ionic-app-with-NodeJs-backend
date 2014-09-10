@@ -20,9 +20,6 @@
     <!-- ionic/angularjs js -->
     <!--<script src="bower_components/ionic/js/ionic.bundle.js"></script>-->
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-
     <!-- bower:js -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/json3/lib/json3.js"></script>
@@ -36,6 +33,12 @@
     <script src="lib/collide/collide.js"></script>
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/flat-ui/dist/js/flat-ui.js"></script>
+    <script src="lib/Bootflat/bootflat/js/icheck.min.js"></script>
+    <script src="lib/Bootflat/bootflat/js/jquery.fs.selecter.min.js"></script>
+    <script src="lib/Bootflat/bootflat/js/jquery.fs.stepper.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="lib/ionic/js/ionic.js"></script>
     <script src="lib/ionic/js/ionic-angular.js"></script>
     <script src="lib/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
@@ -55,6 +58,8 @@
     <!-- Main js file to be included first. TODO make gulp inject file -->
     <script src="js/app.js"></script>
     
+    <!-- your app's js -->
+    
     <!-- inject:js -->
     <script src="account/account.js"></script>
     <script src="admin/admin.controller.js"></script>
@@ -63,19 +68,20 @@
     <script src="main/main.controller.js"></script>
     <script src="main/main.controller.spec.js"></script>
     <script src="main/main.js"></script>
-    <script src="account/login/login.controller.js"></script>
     <script src="account/settings/settings.controller.js"></script>
     <script src="account/signup/signup.controller.js"></script>
+    <script src="account/login/login.controller.js"></script>
     <script src="components/config/config.service.js"></script>
     <script src="components/auth/auth.service.js"></script>
     <script src="components/auth/user.service.js"></script>
-    <script src="components/mongoose-error/mongoose-error.directive.js"></script>
+    <script src="components/navbar/navbar.controller.js"></script>
     <script src="components/socket/socket.mock.js"></script>
     <script src="components/socket/socket.service.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
+    <script src="components/mongoose-error/mongoose-error.directive.js"></script>
     <!-- endinject -->
-
-    <!-- your app's js -->
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
 
   </head>
 

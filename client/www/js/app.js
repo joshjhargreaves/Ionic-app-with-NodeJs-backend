@@ -9,7 +9,8 @@ angular.module('starter', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'btford.socket-io'
+  'btford.socket-io',
+  'ngCordova'
   ])
 
 .run(function($ionicPlatform, $rootScope, Auth, $location, $state) {

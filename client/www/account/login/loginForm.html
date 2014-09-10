@@ -27,7 +27,8 @@
           <p class="item help-block" ng-show="form.password.$error.required && !form.email.$error.required && submitted">
              Please enter a password.
           </p>
-          <p class="item help-block">{{ errors.other }}</p>
+          <p ng-if="errors.other"class="item help-block">{{ errors.other }}</p>
+          <p ng-hide="isOnline" class="item help-block error">No internet connection!</p>
         </div>
         <a class="item item-icon-left item-icon-right" ui-sref="app.signup">
           <i class="icon ion-compose"></i>
@@ -35,19 +36,19 @@
           <i class="icon ion-arrow-right-c"></i>
         </a>
         <label class="item">
-          <button class="button button-block button-calm" type="submit">Log in</button>
+          <button ng-class="{disabled: !isOnline}" class="button button-block button-calm" type="submit">Log in</button>
         </label>
       </div>
     </form>
     <div class="list">
-      <label class="item" ng-click="loginOauth('facebook')">
-        <a class="btn btn-lg btn-block btn-social btn-facebook">
+      <label  class="item" ng-click="loginOauth('facebook')">
+        <a ng-class="{disabled: !isOnline}" class="btn btn-lg btn-block btn-social btn-facebook">
           <i class="fa fa-facebook"></i>
           <div class="text-center">Sign in with Facebook</div>
         </a>
       </label>
       <label class="item" ng-click="loginOauth('google')">
-        <a class="btn btn-lg btn-block btn-social btn-google-plus">
+        <a ng-class="{disabled: !isOnline}" class="btn btn-lg btn-block btn-social btn-google-plus">
           <i class="fa fa-google-plus"></i>
           <div class="text-center">Sign in with Google</div>
         </a>

@@ -1,4 +1,4 @@
-Fullstack
+Ionic-app-with-NodeJs-backend
 =========
 
 N.B This project is very much a progress and I haven't decided where it is going.

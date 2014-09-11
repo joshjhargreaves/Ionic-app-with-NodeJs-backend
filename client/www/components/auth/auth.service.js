@@ -1,10 +1,20 @@
 'use strict';
 
 angular.module('starter')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, Config) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, Config, $cordovaToast) {
     var currentUser = {};
     if($cookieStore.get('token')) {
       currentUser = User.get();
+    }
+
+    var showToast = function(message) {
+      if(window.cordova) {
+        $cordovaToast.show(message, 'short', 'bottom').then(function(success) {
+          // success
+        }, function (error) {
+          // error
+        });
+      }
     }
 
     return {
@@ -28,11 +38,13 @@ angular.module('starter')
           $cookieStore.put('token', data.token);
           currentUser = User.get();
           deferred.resolve(data);
+          showToast("Logged in");
           return cb();
         }).
         error(function(err) {
           this.logout();
           deferred.reject(err);
+          showToast("Login failed");
           return cb(err);
         }.bind(this));
 
@@ -47,6 +59,7 @@ angular.module('starter')
       updateUserAndToken: function(token) {
         $cookieStore.put('token', token);
         currentUser = User.get();
+        showToast("Logged in");
       },
 
       /**
@@ -57,6 +70,7 @@ angular.module('starter')
       logout: function() {
         $cookieStore.remove('token');
         currentUser = {};
+        showToast("Logged out");
       },
 
       /**
@@ -73,6 +87,7 @@ angular.module('starter')
           function(data) {
             $cookieStore.put('token', data.token);
             currentUser = User.get();
+            showToast("Created account");
             return cb(user);
           },
           function(err) {

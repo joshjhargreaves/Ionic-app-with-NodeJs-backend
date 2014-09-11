@@ -20,10 +20,6 @@
           <i class="icon ion-compose"></i>
           <span class="white">Sign Up</span>
         </ion-item>
-        <ion-item ng-show="isLoggedIn()" nav-clear menu-close ng-click="logout()" class = "item-icon-left item-dark">
-          <i class="icon ion-log-out"></i>
-          <span class="white">Log Out {{getCurrentUser().name}}</span>
-        </ion-item>
         <ion-item nav-clear menu-close ui-sref="app.search" class = "item-icon-left item-dark">
           <i class="icon ion-search"></i>
           <span class="white">Search</span>
@@ -35,6 +31,10 @@
         <ion-item nav-clear menu-close ui-sref="app.playlists" class = "item-icon-left item-dark">
           <i class="icon ion-music-note"></i>
           <span class="white">Playlists</span>
+        </ion-item>
+        <ion-item ng-show="isLoggedIn()" nav-clear menu-close ng-click="logout()" class = "item-icon-left item-dark">
+          <i class="icon ion-log-out"></i>
+          <span class="white">Log Out {{getCurrentUser().name}}</span>
         </ion-item>
       </ul>
     </ion-content>

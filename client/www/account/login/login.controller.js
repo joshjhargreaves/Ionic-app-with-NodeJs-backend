@@ -1,30 +1,32 @@
 'use strict';
 
 angular.module('starter')
-  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore, $cordovaNetwork) {
+  .controller('LoginCtrl', function ($scope, $state, Auth, $location, $window, Config, $cookieStore, $cordovaNetwork, $cordovaToast) {
     $scope.user = {};
     $scope.errors = {};
     var loginWindow, token, hasToken, url;
     $scope.isOnline = window.cordova? $cordovaNetwork.isOnline() : true;
+
     $scope.login = function(form) {
-      $scope.submitted = true;
-      if(form.$valid) {
-        Auth.login({
-          email: $scope.user.email,
-          password: $scope.user.password
-        })
-        .then( function() {
-          // Logged in, redirect to home
-          $location.path('/');
-        })
-        .catch( function(err) {
-          $scope.errors.other = err.message;
-        });
+      if($scope.isOnline) {
+        $scope.submitted = true;
+        if(form.$valid) {
+          Auth.login({
+            email: $scope.user.email,
+            password: $scope.user.password
+          })
+          .then( function() {
+            // Logged in, redirect to home
+            $location.path('/');
+          })
+          .catch( function(err) {
+            $scope.errors.other = err.message;
+          });
+        }
       }
     };
 
     $scope.loginOauth = function(provider) {
-      console.log(window.cordova);
       if(!window.cordova) {
         $window.location.href = '/auth/' + provider;
       } else {

@@ -18,6 +18,7 @@ $dark:                            #444444 !default;*/
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
 $positive:                        #1ABC9C !default;
+$positive-dark:										#16A085 !default;
 $calm:                            #3498DB !default;
 $balanced:                        #66cc33 !default;
 $energized:                       #f0b840 !default;
@@ -54,8 +55,27 @@ $fa-font-path: "../lib/font-awesome/fonts" !default;
 	background-color: $dark;
 }
 
+.positive-dark {
+	color: $positive-dark;
+	background-color: $positive-dark;
+}
+
 body {
   cursor: url('../img/finger.png'), auto;
+}
+
+.button.animated {
+  opacity: 1 !important;
+  transition: 0.0s all linear;
+}
+
+.button.animated.ng-hide {
+  opacity: 0 !important;
+}
+
+.button.animated.ng-hide-add,
+.button.animated.ng-hide-remove {
+  display: block !important;
 }
 
 

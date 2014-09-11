@@ -1,15 +1,16 @@
 'use strict';
 
 angular.module('starter')
-.controller('MainCtrl', function (Auth, $scope, $ionicModal, $timeout, $location, $http) {
+.controller('MainCtrl', function (Auth, $scope, $ionicModal, $timeout, $location, $http, $ionicNavBarDelegate) {
   $scope.loginData = {};
   $scope.user = {};
   $scope.errors = {};
-
+  $scope.hasFocus = false;
   $scope.isCollapsed = true;
   $scope.isLoggedIn = Auth.isLoggedIn;
   $scope.isAdmin = Auth.isAdmin;
   $scope.getCurrentUser = Auth.getCurrentUser;
+  $scope.hasFocus = false;
   var currentUser = Auth.getCurrentUser();
   if(currentUser && currentUser.facebook) {
     $http({method: 'GET', url: 'http://graph.facebook.com/' + currentUser.facebook.id + '/picture'}).
@@ -22,6 +23,17 @@ angular.module('starter')
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+  }
+
+  $scope.setFocus = function(){
+    $scope.hasFocus = true;
+    $ionicNavBarDelegate.setTitle('');
+  };
+
+  $scope.noFocus = function(){
+    $scope.hasFocus = false;
+    var prevTitle = $ionicNavBarDelegate.getPreviousTitle()
+    $ionicNavBarDelegate.setTitle(prevTitle);
   }
 
   $scope.logout = function() {

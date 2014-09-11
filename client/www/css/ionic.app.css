@@ -14242,5 +14242,19 @@ a.button {
   color: #34495E;
   background-color: #34495E; }
 
+.positive-dark {
+  color: #16A085;
+  background-color: #16A085; }
+
 body {
   cursor: url('../img/finger.png'), auto; }
+
+.button.animated {
+  opacity: 1 !important;
+  transition: 0s all linear; }
+
+.button.animated.ng-hide {
+  opacity: 0 !important; }
+
+.button.animated.ng-hide-add, .button.animated.ng-hide-remove {
+  display: block !important; }

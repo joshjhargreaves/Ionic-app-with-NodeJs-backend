@@ -87,11 +87,11 @@ angular.module('starter', [
       authenticate: true
     })
 
-    .state('app.browse', {
-      url: "^/browse",
+    .state('app.profile', {
+      url: "^/profile",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html",
+          templateUrl: "templates/profile.html",
         }
       }
     })

@@ -40,11 +40,37 @@ $fa-font-path: "../lib/font-awesome/fonts" !default;
 
 @import "www/lib/bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "www/lib/bootstrap-sass-official/assets/stylesheets/bootstrap";
-
+ 
 // Include all of Ionic
 
 @import "www/lib/bootstrap-social/bootstrap-social";
 @import "www/lib/ionic/scss/ionic";
+
+@mixin keyframes( $animationName )
+{
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}
+
+@include keyframes( expand ) {
+    from { width: 0%; }
+   	to { width: 100%; }
+}
+
+@include keyframes( contract ) {
+    from { width: 100%; }
+   	to { width: 0%; }
+}
 
 .white {
 	color: $white;

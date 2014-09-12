@@ -14235,6 +14235,62 @@ a.button {
   -webkit-transition: none !important;
   transition: none !important; }
 
+@-webkit-keyframes expand {
+  from {
+    width: 0%; }
+
+  to {
+    width: 100%; } }
+
+@-moz-keyframes expand {
+  from {
+    width: 0%; }
+
+  to {
+    width: 100%; } }
+
+@-o-keyframes expand {
+  from {
+    width: 0%; }
+
+  to {
+    width: 100%; } }
+
+@keyframes expand {
+  from {
+    width: 0%; }
+
+  to {
+    width: 100%; } }
+
+@-webkit-keyframes contract {
+  from {
+    width: 100%; }
+
+  to {
+    width: 0%; } }
+
+@-moz-keyframes contract {
+  from {
+    width: 100%; }
+
+  to {
+    width: 0%; } }
+
+@-o-keyframes contract {
+  from {
+    width: 100%; }
+
+  to {
+    width: 0%; } }
+
+@keyframes contract {
+  from {
+    width: 100%; }
+
+  to {
+    width: 0%; } }
+
 .white {
   color: #fff; }
 

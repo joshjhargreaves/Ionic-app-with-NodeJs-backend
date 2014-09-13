@@ -83,17 +83,18 @@ angular.module('starter', [
         'menuContent' :{
           templateUrl: "templates/search.html"
         }
-      },
-      authenticate: true
+      }/*,
+      authenticate: true*/
     })
 
-    .state('app.profile', {
-      url: "^/profile",
+    .state('app.settings', {
+      url: "^/settings",
       views: {
         'menuContent' :{
-          templateUrl: "templates/profile.html",
+          templateUrl: "templates/settings.html",
         }
-      }
+      },
+      authenticate: true
     })
 
     .state('app.playlists', {

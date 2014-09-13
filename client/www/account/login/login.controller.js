@@ -10,6 +10,7 @@ angular.module('starter')
     $scope.login = function(form) {
       if($scope.isOnline) {
         $scope.submitted = true;
+        console.log($scope.user.email);
         if(form.$valid) {
           Auth.login({
             email: $scope.user.email,

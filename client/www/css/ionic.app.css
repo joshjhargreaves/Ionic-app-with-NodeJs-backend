@@ -14237,56 +14237,56 @@ a.button {
 
 @-webkit-keyframes expand {
   from {
-    width: 0%; }
+    width: 0px; }
 
   to {
-    width: 100%; } }
+    width: 400px; } }
 
 @-moz-keyframes expand {
   from {
-    width: 0%; }
+    width: 0px; }
 
   to {
-    width: 100%; } }
+    width: 400px; } }
 
 @-o-keyframes expand {
   from {
-    width: 0%; }
+    width: 0px; }
 
   to {
-    width: 100%; } }
+    width: 400px; } }
 
 @keyframes expand {
   from {
-    width: 0%; }
+    width: 0px; }
 
   to {
-    width: 100%; } }
+    width: 400px; } }
 
 @-webkit-keyframes contract {
   from {
-    width: 100%; }
+    width: 100px; }
 
   to {
     width: 0%; } }
 
 @-moz-keyframes contract {
   from {
-    width: 100%; }
+    width: 100px; }
 
   to {
     width: 0%; } }
 
 @-o-keyframes contract {
   from {
-    width: 100%; }
+    width: 100px; }
 
   to {
     width: 0%; } }
 
 @keyframes contract {
   from {
-    width: 100%; }
+    width: 100px; }
 
   to {
     width: 0%; } }

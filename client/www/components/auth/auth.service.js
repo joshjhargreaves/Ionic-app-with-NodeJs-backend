@@ -37,14 +37,14 @@ angular.module('starter')
         success(function(data) {
           $cookieStore.put('token', data.token);
           currentUser = User.get();
+          //showToast("Logged in");
           deferred.resolve(data);
-          showToast("Logged in");
           return cb();
         }).
         error(function(err) {
           this.logout();
+          //showToast("Login failed");
           deferred.reject(err);
-          showToast("Login failed");
           return cb(err);
         }.bind(this));
 
@@ -59,8 +59,7 @@ angular.module('starter')
       updateUserAndToken: function(token) {
         $cookieStore.put('token', token);
         currentUser = User.get();
-        console.log(currentUser);
-        showToast("Logged in");
+        //showToast("Logged in");
       },
 
       /**
@@ -71,7 +70,7 @@ angular.module('starter')
       logout: function() {
         $cookieStore.remove('token');
         currentUser = {};
-        showToast("Logged out");
+        //showToast("Logged out");
       },
 
       /**
@@ -88,8 +87,8 @@ angular.module('starter')
           function(data) {
             $cookieStore.put('token', data.token);
             currentUser = User.get();
-            showToast("Created account");
-            return cb(user);
+            //showToast("Created account");
+            return cb(currentUser);
           },
           function(err) {
             this.logout();

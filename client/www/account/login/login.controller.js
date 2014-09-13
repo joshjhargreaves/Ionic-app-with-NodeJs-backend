@@ -39,6 +39,7 @@ angular.module('starter')
             token = event.url.match("oauth_token=(.*)")[1];
             loginWindow.close();
             Auth.updateUserAndToken(token);
+            console.log(token);
             $location.path('/');
           }
         })

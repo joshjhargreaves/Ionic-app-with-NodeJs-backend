@@ -46,7 +46,7 @@
         </ion-item>
         <ion-item ng-show="isLoggedIn()" nav-clear menu-close ng-click="logout()" class = "item-icon-left item-dark">
           <i class="icon ion-log-out"></i>
-          <span class="white">Log Out {{currentUser.name}}</span>
+          <span class="white">Log Out {{getCurrentUser().name}}</span>
         </ion-item>
       </ul>
     </ion-content>

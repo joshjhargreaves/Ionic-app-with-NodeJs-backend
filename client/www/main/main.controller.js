@@ -9,9 +9,7 @@ angular.module('starter')
   $scope.isCollapsed = true;
   $scope.isLoggedIn = Auth.isLoggedIn;
   $scope.isAdmin = Auth.isAdmin;
-  $scope.currentUser = Auth.getCurrentUser();
-  console.log($scope.currentUser);
-
+  $scope.getCurrentUser = Auth.getCurrentUser;
   $scope.hasFocus = false;
 
   $scope.setFocus = function(){

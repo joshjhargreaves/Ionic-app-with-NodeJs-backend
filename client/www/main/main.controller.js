@@ -9,21 +9,10 @@ angular.module('starter')
   $scope.isCollapsed = true;
   $scope.isLoggedIn = Auth.isLoggedIn;
   $scope.isAdmin = Auth.isAdmin;
-  $scope.getCurrentUser = Auth.getCurrentUser;
+  $scope.currentUser = Auth.getCurrentUser();
+  console.log($scope.currentUser);
+
   $scope.hasFocus = false;
-  var currentUser = Auth.getCurrentUser();
-  if(currentUser && currentUser.facebook) {
-    $http({method: 'GET', url: 'http://graph.facebook.com/' + currentUser.facebook.id + '/picture'}).
-    success(function(data, status, headers, config) {
-      // this callback will be called asynchronously
-      // when the response is available
-      console.log(data);
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
-  }
 
   $scope.setFocus = function(){
     $scope.hasFocus = true;

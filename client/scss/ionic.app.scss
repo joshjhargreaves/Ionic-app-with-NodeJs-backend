@@ -62,6 +62,13 @@ $fa-font-path: "../lib/font-awesome/fonts" !default;
     }
 }
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 @include keyframes( expand ) {
     from { width: 0%; }
    	to { width: 100%; }
@@ -102,6 +109,10 @@ body {
 .button.animated.ng-hide-add,
 .button.animated.ng-hide-remove {
   display: block !important;
+}
+
+.circular {
+  @include border-radius(50%); 
 }
 
 

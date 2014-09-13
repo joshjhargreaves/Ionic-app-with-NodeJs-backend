@@ -14237,56 +14237,56 @@ a.button {
 
 @-webkit-keyframes expand {
   from {
-    width: 0px; }
+    width: 0%; }
 
   to {
-    width: 400px; } }
+    width: 100%; } }
 
 @-moz-keyframes expand {
   from {
-    width: 0px; }
+    width: 0%; }
 
   to {
-    width: 400px; } }
+    width: 100%; } }
 
 @-o-keyframes expand {
   from {
-    width: 0px; }
+    width: 0%; }
 
   to {
-    width: 400px; } }
+    width: 100%; } }
 
 @keyframes expand {
   from {
-    width: 0px; }
+    width: 0%; }
 
   to {
-    width: 400px; } }
+    width: 100%; } }
 
 @-webkit-keyframes contract {
   from {
-    width: 100px; }
+    width: 100%; }
 
   to {
     width: 0%; } }
 
 @-moz-keyframes contract {
   from {
-    width: 100px; }
+    width: 100%; }
 
   to {
     width: 0%; } }
 
 @-o-keyframes contract {
   from {
-    width: 100px; }
+    width: 100%; }
 
   to {
     width: 0%; } }
 
 @keyframes contract {
   from {
-    width: 100px; }
+    width: 100%; }
 
   to {
     width: 0%; } }
@@ -14314,3 +14314,9 @@ body {
 
 .button.animated.ng-hide-add, .button.animated.ng-hide-remove {
   display: block !important; }
+
+.circular {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%; }

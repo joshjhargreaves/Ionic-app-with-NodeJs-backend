@@ -59,6 +59,7 @@ angular.module('starter')
       updateUserAndToken: function(token) {
         $cookieStore.put('token', token);
         currentUser = User.get();
+        console.log(currentUser);
         showToast("Logged in");
       },
 

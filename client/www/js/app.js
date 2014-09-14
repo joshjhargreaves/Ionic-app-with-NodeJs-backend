@@ -92,6 +92,7 @@ angular.module('starter', [
       views: {
         'menuContent' :{
           templateUrl: "templates/settings.html",
+          controller: 'SettingsCtrl'
         }
       },
       authenticate: true

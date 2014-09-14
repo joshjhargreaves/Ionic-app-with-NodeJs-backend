@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('starter')
-.controller('MainCtrl', function (Auth, $scope, $ionicModal, $timeout, $location, $http, $ionicNavBarDelegate) {
+.controller('MainCtrl', function (Auth, $scope, $ionicModal, $timeout, $location, 
+    $http, $ionicNavBarDelegate, $ionicActionSheet) {
   $scope.loginData = {};
   $scope.user = {};
   $scope.errors = {};
@@ -10,6 +11,8 @@ angular.module('starter')
   $scope.isLoggedIn = Auth.isLoggedIn;
   $scope.isAdmin = Auth.isAdmin;
   $scope.getCurrentUser = Auth.getCurrentUser;
+  //$scope.currentUser = Auth.getCurrentUser();
+  console.log($scope.currentUser);
   $scope.hasFocus = false;
 
   $scope.setFocus = function(){
@@ -61,11 +64,31 @@ angular.module('starter')
       console.log(err.message);
     });
 
-
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
   };
-})
+
+  // Triggered on a button click, or some other target
+  $scope.show = function() {
+    // Show the action sheet
+    var hideSheet = $ionicActionSheet.show({
+      scope: $scope,
+      destructiveText: 'Logout',
+      titleText: '<b>Logout</b>',
+      cancelText: 'Cancel',
+      cancel: function() {
+        hideSheet();
+      },
+      buttonClicked: function(index) {
+         return true;
+      },
+      destructiveButtonClicked: function() {
+        $scope.logout();
+        return true;
+      }
+    });
+  };
+});

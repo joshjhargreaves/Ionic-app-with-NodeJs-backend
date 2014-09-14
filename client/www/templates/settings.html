@@ -3,13 +3,28 @@
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
+  	<div>
+  		<img ng-src="http://graph.facebook.com/{{getCurrentUser().facebook.id}}/picture?width=200&height=200" id="profile-image" />
+  	</div>
+  	<div class="padding-vertical text-center">
+	    <h5 id="profile-name">{{getCurrentUser().name}}</h2>
+	    <p id="profile-description">{{getCurrentUser().email}}</p>
+	  </div>
+		<div class="button-full button-bar padding-vertical">
+		  <a class="button button-small">
+		  	<b>Tweets</b>
+		  	140
+		  </a>
+		  <a class="button button-small">
+		  	<b>Following</b>
+		  	50
+		  </a>
+		  <a class="button button-small">
+		  	<b>Followers</b>
+		  	10
+		  </a>
+		</div>
     <div class="list card">
-		  <div class="item item-avatar">
-		    <img ng-src="http://graph.facebook.com/{{currentUser.facebook.id}}/picture?width=200&height=200" class="circular" />
-		    <h2>{{currentUser.name}}</h2>
-		    <p>{{currentUser.email}}</p>
-		  </div>
-
 		  <div class="item tabs tabs-secondary tabs-icon-left">
 		    <a class="tab-item" href="#">
 		      <i class="icon ion-thumbsup"></i>
@@ -29,3 +44,11 @@
   </ion-content>
  	
 </ion-view>
+
+<ion-content>
+      <div class="card-wrap">
+        <div class="card full-card">
+       		<img ng-src="http://graph.facebook.com/{{getCurrentUser().facebook.id}}/picture?width=200&height=200" class="profile-pic"/>
+      	</div>
+      </div>
+      </div>

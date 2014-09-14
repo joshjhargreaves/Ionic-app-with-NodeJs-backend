@@ -3,6 +3,7 @@
 angular.module('starter')
   .controller('SettingsCtrl', function ($scope, User, Auth) {
     $scope.errors = {};
+    console.log('Settings controller');
 
     $scope.changePassword = function(form) {
       $scope.submitted = true;

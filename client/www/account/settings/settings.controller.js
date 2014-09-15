@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('starter')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $timeout) {
     $scope.errors = {};
     console.log('Settings controller');
 
@@ -19,4 +19,15 @@ angular.module('starter')
         });
       }
 		};
+
+    $scope.doRefresh = function() {
+      $timeout( function() {
+        //simulate async response
+        //$scope.items.push('New Item ' + Math.floor(Math.random() * 1000) + 4);
+
+        //Stop the ion-refresher from spinning
+        $scope.$broadcast('scroll.refreshComplete');
+      
+      }, 1000);
+    };
   });

@@ -37,13 +37,12 @@ angular.module('starter')
         success(function(data) {
           $cookieStore.put('token', data.token);
           currentUser = User.get();
-          //showToast("Logged in");
+          showToast("Logged in");
           deferred.resolve(data);
           return cb();
         }).
         error(function(err) {
           this.logout();
-          //showToast("Login failed");
           deferred.reject(err);
           return cb(err);
         }.bind(this));
@@ -59,7 +58,7 @@ angular.module('starter')
       updateUserAndToken: function(token) {
         $cookieStore.put('token', token);
         currentUser = User.get();
-        //showToast("Logged in");
+        showToast("Logged in");
       },
 
       /**

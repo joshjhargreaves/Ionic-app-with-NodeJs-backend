@@ -3,8 +3,12 @@
 angular.module('starter')
   .controller('SettingsCtrl', function ($scope, User, Auth, $timeout) {
     $scope.errors = {};
+    $scope.items = [];
     console.log('Settings controller');
-
+    $scope.items = [0,1,2,3,4,5];
+    $timeout(function() {
+      //$scope.items = [1,2,3,4,5];
+    }, 1000);
     $scope.changePassword = function(form) {
       $scope.submitted = true;
       if(form.$valid) {

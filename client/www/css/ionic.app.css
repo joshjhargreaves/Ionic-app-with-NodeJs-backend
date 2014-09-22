@@ -14343,3 +14343,22 @@ body {
 
 #profile-description a {
   color: #888; }
+
+.list .item.animate-repeat {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+.list .item.animate-repeat.ng-move, .list .item.animate-repeat.ng-enter, .list .item.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.1s;
+  transition: all linear 0.1s; }
+
+.list .item.animate-repeat.ng-leave.ng-leave-active, .list .item.animate-repeat.ng-move, .list .item.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0; }
+
+.list .item.animate-repeat.ng-leave, .list .item.animate-repeat.ng-move.ng-move-active, .list .item.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 38px; }

@@ -1,4 +1,4 @@
-Ionic-app-with-NodeJs-backend
+[Really old, don't use] Ionic-app-with-NodeJs-backend
 =========
 
 N.B This project is very much a work in progress and I haven't decided where it is going.
